@@ -6,13 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     :root {
-      --bg: #f7f3ea;
-      --fg: #2b2118;
-      --accent: #5b4636;
-      --accent-light: #c7b199;
-      --border: #d2c4b2;
-      --link: #5b4636;
-      --link-hover: #8b6a46;
+      /* Обновлённая айдентика под «Листву»:
+         мягкий почти бумажный фон, природные зелёные и тёплые акценты */
+      --bg: #f4f4ef;             /* общий фон страницы (теплый светлый, с лёгкой зеленью) */
+      --fg: #1f261f;             /* основной текст (тёмно-зелёный/серый) */
+      --accent: #355b3a;         /* главный зелёный акцент (глубокий, не кислотный) */
+      --accent-soft: #6e8f70;    /* мягкий зелёный для второстепенных элементов */
+      --border: #c8d0c4;         /* обводки карточек и блоков */
+      --panel-bg: #ffffff;       /* фон карточек/панелей */
+      --panel-grad-top: #ffffff; /* верхний градиент карточек */
+      --panel-grad-bottom: #f0f3ec; /* нижний градиент карточек */
+      --link: #355b3a;
+      --link-hover: #4c7c50;
     }
 
     * {
@@ -47,7 +52,12 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      background: linear-gradient(to bottom, rgba(247,243,234,0.98), rgba(247,243,234,0.94), rgba(247,243,234,0.9));
+      background: linear-gradient(
+        to bottom,
+        rgba(244,244,239,0.98),
+        rgba(244,244,239,0.94),
+        rgba(244,244,239,0.9)
+      );
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
       margin: -16px -16px 16px;
@@ -74,11 +84,12 @@
       margin: 0;
       font-weight: 600;
       letter-spacing: 0.02em;
+      color: #253425; /* чуть темнее для заголовка */
     }
 
     .subtitle {
       font-size: 13px;
-      color: #6b5a46;
+      color: #6b7a68;
     }
 
     .meta-row {
@@ -86,7 +97,7 @@
       flex-wrap: wrap;
       gap: 12px;
       font-size: 13px;
-      color: #5b4636;
+      color: #475347;
     }
 
     .meta-item {
@@ -109,9 +120,9 @@
       padding: 12px 14px;
       border-radius: 8px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.96);
       font-size: 13px;
-      color: #4a3a2a;
+      color: #3d493c;
     }
 
     .instructions-title {
@@ -120,7 +131,7 @@
       font-size: 13px;
       letter-spacing: 0.03em;
       text-transform: uppercase;
-      color: #3b2d20;
+      color: #2f3e30;
     }
 
     .instructions p {
@@ -134,6 +145,7 @@
 
     .instructions-steps span {
       font-weight: 600;
+      color: #355b3a;
     }
 
     .toc {
@@ -141,7 +153,7 @@
       padding: 10px 14px;
       border-radius: 8px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.96);
       font-size: 13px;
     }
 
@@ -151,7 +163,7 @@
       text-transform: uppercase;
       letter-spacing: 0.08em;
       font-size: 12px;
-      color: #3b2d20;
+      color: #2f3e30;
     }
 
     .toc-links {
@@ -163,7 +175,7 @@
     .toc a {
       font-size: 13px;
       padding: 2px 0;
-      border-bottom: 1px dashed rgba(91,70,54,0.4);
+      border-bottom: 1px dashed rgba(53,91,58,0.45);
     }
 
     main {
@@ -175,7 +187,7 @@
       padding: 14px 14px 10px;
       border-radius: 10px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,0.96);
+      background: rgba(255,255,255,0.98);
     }
 
     .category h2 {
@@ -184,13 +196,13 @@
       font-weight: 600;
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      color: #3b2d20;
+      color: #2f402f;
     }
 
     .category-note {
       margin: 0 0 10px;
       font-size: 13px;
-      color: #6b5a46;
+      color: #667567;
     }
 
     .city-list {
@@ -202,8 +214,8 @@
     .city-item {
       padding: 8px 8px 9px;
       border-radius: 8px;
-      border: 1px solid rgba(210,196,178,0.7);
-      background: linear-gradient(to bottom, #fdfaf5, #f7efe3);
+      border: 1px solid rgba(200,208,196,0.9);
+      background: linear-gradient(to bottom, var(--panel-grad-top), var(--panel-grad-bottom));
       display: flex;
       flex-direction: column;
       gap: 3px;
@@ -220,17 +232,18 @@
     .city-name {
       font-weight: 600;
       font-size: 14px;
+      color: #243624;
     }
 
     .city-meta {
       font-size: 12px;
-      color: #7a6753;
+      color: #6b7a6c;
       white-space: nowrap;
     }
 
     .city-desc {
       font-size: 13px;
-      color: #4a3a2a;
+      color: #404b3f;
     }
 
     .order-row {
@@ -240,11 +253,12 @@
       align-items: center;
       gap: 10px;
       font-size: 12px;
-      color: #5b4636;
+      color: #475347;
     }
 
     .price {
       font-weight: 600;
+      color: #355b3a;
     }
 
     .order-button {
@@ -254,22 +268,25 @@
       padding: 4px 10px;
       border-radius: 999px;
       border: 1px solid var(--accent);
-      background: #f1e4d6;
+      background: #e5efe6;
       font-size: 12px;
       font-weight: 600;
       color: var(--accent);
       cursor: pointer;
       text-decoration: none;
+      transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
     }
 
     .order-button:hover {
-      background: #e3d2bf;
+      background: #d6e4d7;
+      border-color: #3f6944;
+      color: #26422a;
     }
 
     .footer-note {
       margin-top: 12px;
       font-size: 12px;
-      color: #7a6753;
+      color: #667567;
       text-align: left;
     }
 
@@ -471,7 +488,7 @@
           </div>
         </div>
 
-        <!-- ПЕРЕНЕСЁННЫЕ ГОРОДА ИЗ ЮГА В ЕВРОПЕЙСКУЮ ЧАСТЬ -->
+        <!-- Перенесённые города из Юга в Европейскую часть -->
 
         <div class="city-item">
           <div class="city-header">
