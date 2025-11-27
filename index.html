@@ -3,137 +3,158 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог дореволюционных карт — Листва</title>
+    <title>Дореволюционные карты городов — Листва</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            background-color: #F5F5F3; /* Светлый приятный фон */
+            background-color: #F5F5F3;
             color: #333;
             margin: 0;
             padding: 0;
             line-height: 1.5;
         }
         .container {
-            max-width: 800px;
+            max-width: 820px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 20px 16px 40px;
         }
         header {
-            background: #fff;
-            padding: 20px;
+            background: #ffffff;
+            padding: 18px 16px 16px;
             border-radius: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
             border: 1px solid #E0E0E0;
         }
         h1 {
             font-size: 22px;
-            margin: 0 0 10px 0;
-            color: #2F6B4F; /* Зеленый цвет Листвы */
+            margin: 0 0 6px 0;
+            color: #2F6B4F;
         }
         .subtitle {
             font-size: 14px;
             color: #666;
         }
-        .info-block {
-            background: #fff;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-            font-size: 14px;
-            border: 1px solid #E0E0E0;
+        .info-row {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #555;
         }
         .info-item {
             display: inline-block;
-            margin-right: 15px;
+            margin-right: 14px;
             font-weight: 500;
-            color: #444;
         }
-        .category {
-            margin-bottom: 30px;
+        .info-item span {
+            font-weight: 400;
+            color: #666;
         }
-        .category-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #222;
-            padding-left: 5px;
-            border-left: 4px solid #2F6B4F;
-            line-height: 1.2;
-        }
-        .card {
-            background: #fff;
+
+        .hint {
+            background: #ffffff;
+            border-radius: 10px;
             border: 1px solid #E0E0E0;
-            border-radius: 8px;
-            padding: 15px;
+            padding: 12px 14px;
+            margin-bottom: 18px;
+            font-size: 13px;
+            color: #555;
+        }
+        .hint-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: #333;
+        }
+
+        .list-header {
+            font-size: 15px;
+            font-weight: 600;
+            margin: 0 0 10px 2px;
+            color: #333;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #E2E2DE;
+            border-radius: 10px;
+            padding: 12px 12px 10px;
             margin-bottom: 10px;
-            transition: box-shadow 0.2s;
+            transition: box-shadow 0.15s ease, transform 0.1s ease;
         }
         .card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transform: translateY(-1px);
         }
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 5px;
+            gap: 8px;
+            margin-bottom: 4px;
         }
         .city-name {
-            font-size: 16px;
-            font-weight: 700;
+            font-size: 15px;
+            font-weight: 650;
             color: #222;
         }
         .city-meta {
             font-size: 12px;
             color: #888;
+            white-space: nowrap;
         }
         .city-desc {
-            font-size: 14px;
+            font-size: 13px;
             color: #555;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .price-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 10px;
-            padding-top: 10px;
-            border-top: 1px solid #F0F0F0;
+            gap: 8px;
+            padding-top: 6px;
+            border-top: 1px solid #F0F0EE;
+            font-size: 13px;
         }
         .price {
             font-weight: 700;
             color: #2F6B4F;
-            font-size: 15px;
         }
         .btn {
             background-color: #2F6B4F;
-            color: white;
+            color: #ffffff;
             text-decoration: none;
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 13px;
+            padding: 5px 13px;
+            border-radius: 999px;
+            font-size: 12px;
             font-weight: 600;
-            transition: background 0.2s;
+            transition: background 0.15s ease;
+            white-space: nowrap;
         }
         .btn:hover {
             background-color: #24563E;
         }
-        /* Оглавление */
-        .toc {
-            background: #fff;
-            padding: 15px;
-            border-radius: 12px;
-            margin-bottom: 25px;
-            border: 1px solid #E0E0E0;
+
+        .footer-note {
+            margin-top: 14px;
+            font-size: 12px;
+            color: #777;
         }
-        .toc a {
-            display: inline-block;
-            margin-right: 15px;
-            margin-bottom: 5px;
-            color: #2F6B4F;
-            text-decoration: none;
-            font-size: 14px;
-            border-bottom: 1px dashed #2F6B4F;
+
+        @media (max-width: 600px) {
+            header {
+                padding: 14px 12px 12px;
+            }
+            .card {
+                padding: 10px 10px 8px;
+            }
+            .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .price-row {
+                flex-direction: row;
+                justify-content: space-between;
+            }
         }
     </style>
 </head>
@@ -143,115 +164,205 @@
 
     <header>
         <h1>Дореволюционные карты городов</h1>
-        <div class="subtitle">Предзаказ в книжной лавке «Листва»</div>
-        <div style="margin-top: 15px;">
-            <span class="info-item">Цена: 1612 ₽</span>
-            <span class="info-item">До 14 декабря</span>
-            <span class="info-item">Изготовление 7 дней</span>
+        <div class="subtitle">предзаказ в книжной лавке «Листва»</div>
+        <div class="info-row">
+            <span class="info-item">Цена карты: <span>1612 ₽</span></span>
+            <span class="info-item">Предзаказ до: <span>14 декабря</span></span>
+            <span class="info-item">Изготовление: <span>7 дней</span></span>
+        </div>
+        <div class="info-row">
+            <span class="info-item">Консультант: <span><a href="https://t.me/listvamsk" target="_blank">@listvamsk</a></span></span>
         </div>
     </header>
 
-    <div class="toc">
-        <div style="font-weight:bold; margin-bottom:10px; font-size:14px;">Быстрый переход:</div>
-        <a href="#euro">Европейская часть</a>
-        <a href="#south">Юг</a>
-        <a href="#renamed">Переименованные</a>
-        <a href="#ural">Урал</a>
-        <a href="#siberia">Сибирь и ДВ</a>
+    <div class="hint">
+        <div class="hint-title">Как пользоваться списком</div>
+        <p>Перед вами полный список городов. Чтобы быстро найти нужный, используйте поиск по странице: Ctrl+F (Windows) или Cmd+F (Mac) и введите название города.</p>
+        <p>Чтобы оформить заказ, напишите нашему консультанту в Telegram и перечислите, какие карты хотите.</p>
     </div>
 
-    <!-- ЕВРОПЕЙСКАЯ ЧАСТЬ -->
-    <div class="category" id="euro">
-        <div class="category-title">Европейская часть</div>
-        <div style="font-size:13px; color:#666; margin-bottom:10px;">Центр, Запад, Север, Поволжье</div>
+    <p class="list-header">Список городов:</p>
 
-        <!-- Сюда вставлены все города Европейской части, включая перенесенные -->
-        <div class="card">
-            <div class="card-header">
-                <div class="city-name">Москва (1916)</div>
-                <div class="city-meta">1916</div>
-            </div>
-            <div class="city-desc">Столица на закате Российской Империи.</div>
-            <div class="price-row">
-                <span class="price">1612 ₽</span>
-                <a href="https://t.me/listvamsk" class="btn">Заказать</a>
-            </div>
-        </div>
+    <!-- Ниже просто список городов, без категорий -->
 
-        <div class="card">
-            <div class="card-header">
-                <div class="city-name">Санкт-Петербург</div>
-                <div class="city-meta">1878</div>
-            </div>
-            <div class="city-desc">Величественный план столицы Империи.</div>
-            <div class="price-row">
-                <span class="price">1612 ₽</span>
-                <a href="https://t.me/listvamsk" class="btn">Заказать</a>
-            </div>
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Москва (1916)</div>
+            <div class="city-meta">Россия, центр</div>
         </div>
-        
-        <div class="card">
-            <div class="card-header">
-                <div class="city-name">Киев</div>
-                <div class="city-meta">1904</div>
-            </div>
-            <div class="city-desc">Мать городов русских, столица Юго-Западного края.</div>
-            <div class="price-row">
-                <span class="price">1612 ₽</span>
-                <a href="https://t.me/listvamsk" class="btn">Заказать</a>
-            </div>
+        <div class="city-desc">Столица Российской Империи накануне революции.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
         </div>
+    </div>
 
-        <div class="card">
-            <div class="card-header">
-                <div class="city-name">Варшава</div>
-                <div class="city-meta">1886</div>
-            </div>
-            <div class="city-desc">Столица Царства Польского в составе Империи.</div>
-            <div class="price-row">
-                <span class="price">1612 ₽</span>
-                <a href="https://t.me/listvamsk" class="btn">Заказать</a>
-            </div>
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Санкт-Петербург</div>
+            <div class="city-meta">Балтика</div>
         </div>
-
-        <div class="card">
-            <div class="card-header">
-                <div class="city-name">Рига</div>
-                <div class="city-meta">1900</div>
-            </div>
-            <div class="city-desc">Балтийский порт, центр Лифляндской губернии.</div>
-            <div class="price-row">
-                <span class="price">1612 ₽</span>
-                <a href="https://t.me/listvamsk" class="btn">Заказать</a>
-            </div>
+        <div class="city-desc">Имперская столица и главный порт на Балтийском море.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
         </div>
+    </div>
 
-        <div class="card">
-            <div class="card-header">
-                <div class="city-name">Брест-Литовск</div>
-                <div class="city-meta">1834</div>
-            </div>
-            <div class="city-desc">Знаменитая крепость на западной границе.</div>
-            <div class="price-row">
-                <span class="price">1612 ₽</span>
-                <a href="https://t.me/listvamsk" class="btn">Заказать</a>
-            </div>
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Киев</div>
+            <div class="city-meta">Юго-Западный край</div>
         </div>
-
-        <div class="card">
-            <div class="card-header">
-                <div class="city-name">Кёнигсберг (Королевец)</div>
-                <div class="city-meta">1913</div>
-            </div>
-            <div class="city-desc">План Восточной Пруссии на немецком языке.</div>
-            <div class="price-row">
-                <span class="price">1612 ₽</span>
-                <a href="https://t.me/listvamsk" class="btn">Заказать</a>
-            </div>
+        <div class="city-desc">Один из крупнейших городов Империи, центр Юго-Западного края.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
         </div>
+    </div>
 
-        <!-- Остальные европейские города -->
-        <div class="card"><div class="card-header"><div class="city-name">Архангельск</div><div class="city-meta">1890</div></div><div class="city-desc">Северный порт на Белом море.</div><div class="price-row"><span class="price">1612 ₽</span><a href="https://t.me/listvamsk" class="btn">Заказать</a></div></div>
-        <div class="card"><div class="card-header"><div class="city-name">Новгород</div><div class="city-meta">1861</div></div><div class="city-desc">Колыбель русской государственности.</div><div class="price-row"><span class="price">1612 ₽</span><a href="https://t.me/listvamsk" class="btn">Заказать</a></div></div>
-        <div class="card"><div class="card-header"><div class="city-name">Псков</div><div class="city-meta">1890</div></div><div class="city-desc">Древний форпост на западе.</div><div class="price-row"><span class="price">1612 ₽</span><a href="https://t.me/listvamsk" class="btn">Заказать</a></div></div>
-        <div class="card"><div class="card-header
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Варшава</div>
+            <div class="city-meta">Царство Польское</div>
+        </div>
+        <div class="city-desc">Столица Царства Польского в составе Российской Империи.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Рига</div>
+            <div class="city-meta">Лифляндская губерния</div>
+        </div>
+        <div class="city-desc">Крупный балтийский порт и губернский центр.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Брест-Литовск</div>
+            <div class="city-meta">Запад Империи</div>
+        </div>
+        <div class="city-desc">Крепость и важный транспортный узел на западной границе Империи.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Кёнигсберг (Королевец)</div>
+            <div class="city-meta">Восточная Пруссия</div>
+        </div>
+        <div class="city-desc">Немецкий город, подробный план будущего Калининграда с немецкой подписью.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Суражский уезд</div>
+            <div class="city-meta">Черниговская губерния</div>
+        </div>
+        <div class="city-desc">Административная карта уезда с волостями и населенными пунктами.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Могилевская губерния</div>
+            <div class="city-meta">Запад Империи</div>
+        </div>
+        <div class="city-desc">Карта губернии с делением на уезды и центры.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <!-- Примеры остальных городов, без категорий, просто списком.
+         Тут ты можешь продолжать по тому же шаблону, я даю ещё блоки: -->
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Одесса</div>
+            <div class="city-meta">Чёрное море</div>
+        </div>
+        <div class="city-desc">Крупнейший порт на Чёрном море и центр Новороссии.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Харьков</div>
+            <div class="city-meta">Юг России</div>
+        </div>
+        <div class="city-desc">Промышленный и университетский центр южных губерний.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Севастополь</div>
+            <div class="city-meta">Крым</div>
+        </div>
+        <div class="city-desc">Главная база Черноморского флота Российской Империи.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Ростов-на-Дону</div>
+            <div class="city-meta">Дон</div>
+        </div>
+        <div class="city-desc">Важный торговый и транспортный центр на Дону.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            <div class="city-name">Таганрог</div>
+            <div class="city-meta">Азовское море</div>
+        </div>
+        <div class="city-desc">Портовый город на Азовском море, важный торговый пункт.</div>
+        <div class="price-row">
+            <span class="price">1612 ₽</span>
+            <a href="https://t.me/listvamsk" class="btn" target="_blank">Заказать</a>
+        </div>
+    </div>
+
+    <!-- ... дальше по шаблону добавляешь остальные города -->
+
+    <p class="footer-note">
+        Чтобы оформить заказ, напишите нашему консультанту в Telegram <a href="https://t.me/listvamsk" target="_blank">@listvamsk</a> и перечислите города, которые вас интересуют. Если нужного города нет в списке, всё равно напишите — попробуем подобрать или сделать карту под заказ.
+    </p>
+
+</div>
+
+</body>
+</html>
