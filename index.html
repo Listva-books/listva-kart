@@ -1,1113 +1,867 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог дореволюционных карт — Книжная лавка Листва</title>
-    <style>
-:root {
-  --color-white: rgba(255, 255, 255, 1);
-  --color-black: rgba(0, 0, 0, 1);
-  --color-cream-50: rgba(252, 252, 249, 1);
-  --color-cream-100: rgba(255, 255, 253, 1);
-  --color-gray-200: rgba(245, 245, 245, 1);
-  --color-gray-300: rgba(167, 169, 169, 1);
-  --color-gray-400: rgba(119, 124, 124, 1);
-  --color-slate-500: rgba(98, 108, 113, 1);
-  --color-brown-600: rgba(94, 82, 64, 1);
-  --color-charcoal-700: rgba(31, 33, 33, 1);
-  --color-charcoal-800: rgba(38, 40, 40, 1);
-  --color-slate-900: rgba(19, 52, 59, 1);
-  --color-teal-300: rgba(50, 184, 198, 1);
-  --color-teal-400: rgba(45, 166, 178, 1);
-  --color-teal-500: rgba(33, 128, 141, 1);
-  --color-teal-600: rgba(29, 116, 128, 1);
-  --color-teal-700: rgba(26, 104, 115, 1);
-  --color-teal-800: rgba(41, 150, 161, 1);
-  --color-red-400: rgba(255, 84, 89, 1);
-  --color-red-500: rgba(192, 21, 47, 1);
-  --color-orange-400: rgba(230, 129, 97, 1);
-  --color-orange-500: rgba(168, 75, 47, 1);
-  --color-brown-600-rgb: 94, 82, 64;
-  --color-teal-500-rgb: 33, 128, 141;
-  --color-slate-900-rgb: 19, 52, 59;
-  --color-slate-500-rgb: 98, 108, 113;
-  --color-background: var(--color-cream-50);
-  --color-surface: var(--color-cream-100);
-  --color-text: var(--color-slate-900);
-  --color-text-secondary: var(--color-slate-500);
-  --color-primary: var(--color-teal-500);
-  --color-primary-hover: var(--color-teal-600);
-  --color-primary-active: var(--color-teal-700);
-  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
-  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
-  --color-bg-1: rgba(59, 130, 246, 0.08);
-  --color-bg-2: rgba(245, 158, 11, 0.08);
-  --color-bg-3: rgba(34, 197, 94, 0.08);
-  --color-bg-4: rgba(239, 68, 68, 0.08);
-  --color-bg-5: rgba(147, 51, 234, 0.08);
-  --color-bg-6: rgba(249, 115, 22, 0.08);
-  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-size-sm: 12px;
-  --font-size-base: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 18px;
-  --font-size-2xl: 20px;
-  --font-size-3xl: 24px;
-  --font-weight-normal: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 550;
-  --font-weight-bold: 600;
-  --space-4: 4px;
-  --space-8: 8px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-32: 32px;
-  --radius-base: 8px;
-  --radius-lg: 12px;
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-}
+  <meta charset="UTF-8">
+  <title>Дореволюционные карты городов — Листва</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --fg: #2b2118;
+      --accent: #5b4636;
+      --accent-light: #c7b199;
+      --border: #d2c4b2;
+      --link: #5b4636;
+      --link-hover: #8b6a46;
+    }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-gray-400-rgb: 119, 124, 124;
-    --color-teal-300-rgb: 50, 184, 198;
-    --color-gray-300-rgb: 167, 169, 169;
-    --color-gray-200-rgb: 245, 245, 245;
-    --color-background: var(--color-charcoal-700);
-    --color-surface: var(--color-charcoal-800);
-    --color-text: var(--color-gray-200);
-    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
-    --color-primary: var(--color-teal-300);
-    --color-primary-hover: var(--color-teal-400);
-    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
-    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
-    --color-bg-1: rgba(29, 78, 216, 0.15);
-    --color-bg-2: rgba(180, 83, 9, 0.15);
-    --color-bg-3: rgba(21, 128, 61, 0.15);
-    --color-bg-4: rgba(185, 28, 28, 0.15);
-    --color-bg-5: rgba(107, 33, 168, 0.15);
-    --color-bg-6: rgba(194, 65, 12, 0.15);
-  }
-}
+    * {
+      box-sizing: border-box;
+    }
 
-@font-face {
-  font-family: 'FKGroteskNeue';
-  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: var(--font-family-base);
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    color: var(--color-text);
-    background-color: var(--color-background);
-    padding-top: 180px;
-}
-
-.fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: var(--color-surface);
-    border-bottom: 2px solid var(--color-border);
-    z-index: 1000;
-    box-shadow: var(--shadow-md);
-}
-
-.header-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-20) var(--space-24);
-}
-
-.main-title {
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin-bottom: var(--space-16);
-    text-align: center;
-}
-
-.quick-nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-8);
-    justify-content: center;
-}
-
-.quick-nav-link {
-    padding: var(--space-8) var(--space-16);
-    background-color: var(--color-primary);
-    color: var(--color-cream-50);
-    text-decoration: none;
-    border-radius: var(--radius-base);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-medium);
-    transition: background-color 0.2s;
-}
-
-.quick-nav-link:hover {
-    background-color: var(--color-primary-hover);
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--space-32) var(--space-24);
-}
-
-.instruction-box {
-    background-color: var(--color-bg-1);
-    border: 1px solid var(--color-card-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-24);
-    margin-bottom: var(--space-32);
-}
-
-.instruction-box h3 {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-semibold);
-    margin-bottom: var(--space-16);
-    color: var(--color-text);
-}
-
-.instruction-box ul {
-    list-style: none;
-    margin-bottom: var(--space-16);
-}
-
-.instruction-box li {
-    margin-bottom: var(--space-8);
-    padding-left: var(--space-20);
-    position: relative;
-}
-
-.instruction-box li:before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: var(--color-primary);
-    font-weight: bold;
-    font-size: var(--font-size-lg);
-}
-
-.price-info {
-    background-color: var(--color-bg-3);
-    border-radius: var(--radius-base);
-    padding: var(--space-16);
-    margin-top: var(--space-20);
-}
-
-.price-info p {
-    margin-bottom: var(--space-4);
-}
-
-.price-info p:last-child {
-    margin-bottom: 0;
-}
-
-.section {
-    margin-bottom: var(--space-32);
-}
-
-.section-title {
-    font-size: var(--font-size-2xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin-bottom: var(--space-12);
-    padding-bottom: var(--space-12);
-    border-bottom: 2px solid var(--color-border);
-    scroll-margin-top: 200px;
-}
-
-.section-description {
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-20);
-    font-size: var(--font-size-base);
-}
-
-.city-grid {
-    display: grid;
-    gap: var(--space-16);
-}
-
-.city-card {
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-card-border);
-    border-radius: var(--radius-base);
-    padding: var(--space-16);
-    transition: all 0.2s;
-    display: grid;
-    grid-template-columns: 50px 1fr auto;
-    gap: var(--space-16);
-    align-items: start;
-}
-
-.city-card:hover {
-    box-shadow: var(--shadow-md);
-    border-color: var(--color-primary);
-    transform: translateY(-2px);
-}
-
-.city-number {
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-primary);
-    text-align: center;
-    background-color: var(--color-bg-1);
-    padding: var(--space-4);
-    border-radius: var(--radius-base);
-}
-
-.city-info {
-    flex: 1;
-}
-
-.city-name {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-text);
-    margin-bottom: var(--space-8);
-}
-
-.city-year {
-    font-size: var(--font-size-base);
-    color: var(--color-primary);
-    font-weight: var(--font-weight-medium);
-    margin-bottom: var(--space-8);
-}
-
-.city-description {
-    font-size: var(--font-size-base);
-    color: var(--color-text-secondary);
-    line-height: 1.5;
-}
-
-.order-btn {
-    padding: var(--space-8) var(--space-20);
-    background-color: var(--color-primary);
-    color: var(--color-cream-50);
-    text-decoration: none;
-    border-radius: var(--radius-base);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-medium);
-    transition: background-color 0.2s;
-    white-space: nowrap;
-    display: inline-block;
-    border: none;
-    cursor: pointer;
-}
-
-.order-btn:hover {
-    background-color: var(--color-primary-hover);
-}
-
-.footer {
-    text-align: center;
-    padding: var(--space-32) var(--space-24);
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-base);
-    border-top: 1px solid var(--color-border);
-}
-
-.footer-logo {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-bold);
-    color: var(--color-text);
-    margin-bottom: var(--space-8);
-}
-
-@media (max-width: 768px) {
     body {
-        padding-top: 240px;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.5;
     }
 
-    .main-title {
-        font-size: var(--font-size-xl);
+    a {
+      color: var(--link);
+      text-decoration: none;
     }
 
-    .quick-nav {
-        gap: var(--space-4);
+    a:hover {
+      color: var(--link-hover);
     }
 
-    .quick-nav-link {
-        font-size: 11px;
-        padding: 6px 10px;
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px 16px 40px;
     }
 
-    .city-card {
-        grid-template-columns: 40px 1fr;
-        gap: var(--space-12);
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: linear-gradient(to bottom, rgba(247,243,234,0.98), rgba(247,243,234,0.94), rgba(247,243,234,0.9));
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      margin: -16px -16px 16px;
+      padding: 12px 16px 10px;
     }
 
-    .city-card .order-btn {
-        grid-column: 2;
-        justify-self: start;
-        margin-top: var(--space-8);
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
     }
 
-    .section-title {
-        font-size: var(--font-size-xl);
+    .title-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      gap: 8px;
     }
-}
-    </style>
+
+    h1 {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: #6b5a46;
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 13px;
+      color: #5b4636;
+    }
+
+    .meta-item {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      white-space: nowrap;
+    }
+
+    .meta-label {
+      font-weight: 600;
+    }
+
+    .meta-sep {
+      opacity: 0.5;
+    }
+
+    .instructions {
+      margin-bottom: 16px;
+      padding: 12px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.9);
+      font-size: 13px;
+      color: #4a3a2a;
+    }
+
+    .instructions-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 13px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #3b2d20;
+    }
+
+    .instructions p {
+      margin: 2px 0;
+    }
+
+    .instructions-steps {
+      margin-top: 6px;
+      font-size: 13px;
+    }
+
+    .instructions-steps span {
+      font-weight: 600;
+    }
+
+    .toc {
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.9);
+      font-size: 13px;
+    }
+
+    .toc-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 12px;
+      color: #3b2d20;
+    }
+
+    .toc-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+    }
+
+    .toc a {
+      font-size: 13px;
+      padding: 2px 0;
+      border-bottom: 1px dashed rgba(91,70,54,0.4);
+    }
+
+    main {
+      margin-top: 4px;
+    }
+
+    .category {
+      margin-bottom: 24px;
+      padding: 14px 14px 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.96);
+    }
+
+    .category h2 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #3b2d20;
+    }
+
+    .category-note {
+      margin: 0 0 10px;
+      font-size: 13px;
+      color: #6b5a46;
+    }
+
+    .city-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .city-item {
+      padding: 8px 8px 9px;
+      border-radius: 8px;
+      border: 1px solid rgba(210,196,178,0.7);
+      background: linear-gradient(to bottom, #fdfaf5, #f7efe3);
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .city-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .city-name {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .city-meta {
+      font-size: 12px;
+      color: #7a6753;
+      white-space: nowrap;
+    }
+
+    .city-desc {
+      font-size: 13px;
+      color: #4a3a2a;
+    }
+
+    .order-row {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: #5b4636;
+    }
+
+    .price {
+      font-weight: 600;
+    }
+
+    .order-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      background: #f1e4d6;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .order-button:hover {
+      background: #e3d2bf;
+    }
+
+    .footer-note {
+      margin-top: 12px;
+      font-size: 12px;
+      color: #7a6753;
+      text-align: left;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 10px 10px 8px;
+      }
+      .page {
+        padding: 10px 10px 32px;
+      }
+      .category {
+        padding: 12px 10px 8px;
+      }
+      .city-item {
+        padding: 7px 7px 8px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="fixed-header">
-        <div class="header-content">
-            <h1 class="main-title">КАТАЛОГ ДОРЕВОЛЮЦИОННЫХ КАРТ — 64 ГОРОДА</h1>
-            
-            <nav class="quick-nav">
-                <a href="#european" class="quick-nav-link">Европейская часть</a>
-                <a href="#south" class="quick-nav-link">Юг</a>
-                <a href="#renamed" class="quick-nav-link">Переименованные</a>
-                <a href="#urals" class="quick-nav-link">Урал</a>
-                <a href="#siberia" class="quick-nav-link">Сибирь &amp; Дальний Восток</a>
-                <a href="#admin" class="quick-nav-link">Администр. карты</a>
-            </nav>
+<div class="page">
+
+  <header>
+    <div class="header-inner">
+      <div class="title-row">
+        <h1>Дореволюционные карты городов</h1>
+        <span class="subtitle">предзаказ в книжной лавке «Листва»</span>
+      </div>
+      <div class="meta-row">
+        <div class="meta-item">
+          <span class="meta-label">Цена карты:</span>
+          <span>1612 рублей</span>
         </div>
+        <span class="meta-sep">·</span>
+        <div class="meta-item">
+          <span class="meta-label">Предзаказ до:</span>
+          <span>14 декабря</span>
+        </div>
+        <span class="meta-sep">·</span>
+        <div class="meta-item">
+          <span class="meta-label">Изготовление:</span>
+          <span>7 дней</span>
+        </div>
+        <span class="meta-sep">·</span>
+        <div class="meta-item">
+          <span class="meta-label">Консультант:</span>
+          <a href="https://t.me/listvamsk" target="_blank">@listvamsk</a>
+        </div>
+      </div>
     </div>
+  </header>
 
-    <div class="container">
-        <div class="instruction-box">
-            <h3>КАК НАЙТИ НУЖНЫЙ ГОРОД</h3>
-            <p style="margin-bottom: var(--space-12);">Этот каталог содержит <strong>64 дореволюционные карты</strong> от Архангельска до Владивостока, от Петербурга до Крыма.</p>
-            
-            <p style="font-weight: var(--font-weight-semibold); margin-bottom: var(--space-8);">Способы поиска:</p>
-            <ul>
-                <li>Используйте оглавление выше — кликните на категорию для быстрого перехода</li>
-                <li>Используйте поиск браузера (Ctrl+F на ПК или Cmd+F на Mac) и введите название города</li>
-                <li>Прокручивайте вниз и смотрите карточки по категориям</li>
-            </ul>
-            
-            <div class="price-info">
-                <p style="font-weight: var(--font-weight-bold); font-size: var(--font-size-lg); margin-bottom: var(--space-8);">ЦЕНА И СРОКИ:</p>
-                <p>• Карта (плакат) — <strong>1612 рублей</strong></p>
-        
-                <p>• Заказы принимаются до <strong>14 декабря</strong></p>
-                <p>• Изготовление — <strong>7 дней</strong></p>
-                <p>• Для заказа напишите номер города консультанту</p>
-            </div>
+  <section class="instructions">
+    <div class="instructions-title">Как быстро найти нужный город</div>
+    <p>Перед вами полный каталог дореволюционных карт городов, доступных к предзаказу в «Листве».</p>
+    <div class="instructions-steps">
+      <p><span>1.</span> Пролистайте страницу до нужной категории или воспользуйтесь оглавлением ниже.</p>
+      <p><span>2.</span> На компьютере можно использовать поиск по странице: нажмите Ctrl+F (Windows) или Cmd+F (Mac) и введите название города.</p>
+      <p><span>3.</span> Запомните или запишите названия нужных городов.</p>
+      <p><span>4.</span> Напишите нашему консультанту в Telegram <a href="https://t.me/listvamsk" target="_blank">@listvamsk</a> и перечислите, какие карты вы хотите заказать.</p>
+    </div>
+  </section>
+
+  <section class="toc">
+    <div class="toc-title">Оглавление</div>
+    <div class="toc-links">
+      <a href="#european">Европейская часть</a>
+      <a href="#south">Юг</a>
+      <a href="#renamed">Города, переименованные после революции</a>
+      <a href="#ural">Урал</a>
+      <a href="#siberia">Сибирь и Дальний Восток</a>
+    </div>
+  </section>
+
+  <main>
+
+    <section class="category" id="european">
+      <h2>Европейская часть</h2>
+      <p class="category-note">Центр, север, запад и административные карты европейской части Российской Империи.</p>
+      <div class="city-list">
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Москва</div>
+            <div class="city-meta">столица Российской Империи</div>
+          </div>
+          <div class="city-desc">Историческая карта дореволюционной Москвы с дореволюционной планировкой и улицами.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
         </div>
 
-        <!-- ЕВРОПЕЙСКАЯ ЧАСТЬ (26 городов) -->
-        <section id="european" class="section">
-            <h2 class="section-title">ЕВРОПЕЙСКАЯ ЧАСТЬ</h2>
-            <p class="section-description">От Архангельска до Воронежа, от Петербурга до Волги — центр русской государственности</p>
-            <div class="city-grid">
-                <div class="city-card">
-                    <div class="city-number">1</div>
-                    <div class="city-info">
-                        <div class="city-name">Архангельск</div>
-                        <div class="city-year">1890 год</div>
-                        <div class="city-description">Северный порт на Белом море, ворота России в Европу</div>
-                    </div>
-                    <button class="order-btn" onclick="order(1, 'Архангельск 1890')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">2</div>
-                    <div class="city-info">
-                        <div class="city-name">Верея</div>
-                        <div class="city-year">1784 год</div>
-                        <div class="city-description">Московская область, карта черно-белая</div>
-                    </div>
-                    <button class="order-btn" onclick="order(2, 'Верея 1784')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">3</div>
-                    <div class="city-info">
-                        <div class="city-name">Волоколамск</div>
-                        <div class="city-year">1873 год</div>
-                        <div class="city-description">Исторический город Московской области</div>
-                    </div>
-                    <button class="order-btn" onclick="order(3, 'Волоколамск 1873')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">4</div>
-                    <div class="city-info">
-                        <div class="city-name">Воронеж</div>
-                        <div class="city-year">1910 год</div>
-                        <div class="city-description">Петровский край, город кораблей и военной славы</div>
-                    </div>
-                    <button class="order-btn" onclick="order(4, 'Воронеж 1910')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">5</div>
-                    <div class="city-info">
-                        <div class="city-name">Всеволожск</div>
-                        <div class="city-year">1916 год</div>
-                        <div class="city-description">Пригород Санкт-Петербурга, Финский залив</div>
-                    </div>
-                    <button class="order-btn" onclick="order(5, 'Всеволожск 1916')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">6</div>
-                    <div class="city-info">
-                        <div class="city-name">Калязин</div>
-                        <div class="city-year">1855 год</div>
-                        <div class="city-description">Город на Волге, Тверская область</div>
-                    </div>
-                    <button class="order-btn" onclick="order(6, 'Калязин 1855')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">7</div>
-                    <div class="city-info">
-                        <div class="city-name">Казань</div>
-                        <div class="city-year">1903 год</div>
-                        <div class="city-description">Столица Волжского края, встреча культур</div>
-                    </div>
-                    <button class="order-btn" onclick="order(7, 'Казань 1903')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">8</div>
-                    <div class="city-info">
-                        <div class="city-name">Москва</div>
-                        <div class="city-year">1613 год</div>
-                        <div class="city-description">Редчайшая карта времени Смутного времени</div>
-                    </div>
-                    <button class="order-btn" onclick="order(8, 'Москва 1613')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">9</div>
-                    <div class="city-info">
-                        <div class="city-name">Москва</div>
-                        <div class="city-year">1916 год</div>
-                        <div class="city-description">Столица на закате Российской Империи</div>
-                    </div>
-                    <button class="order-btn" onclick="order(9, 'Москва 1916')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">10</div>
-                    <div class="city-info">
-                        <div class="city-name">Москва и пригород Суворина</div>
-                        <div class="city-year">1916 год</div>
-                        <div class="city-description">Детальная карта Москвы и окрестностей, 70х100</div>
-                    </div>
-                    <button class="order-btn" onclick="order(10, 'Москва Суворина 1916')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">11</div>
-                    <div class="city-info">
-                        <div class="city-name">Нижний Новгород</div>
-                        <div class="city-year">1896 год</div>
-                        <div class="city-description">Слияние Волги и Оки, центр ярмарок</div>
-                    </div>
-                    <button class="order-btn" onclick="order(11, 'Нижний Новгород 1896')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">12</div>
-                    <div class="city-info">
-                        <div class="city-name">Новгород</div>
-                        <div class="city-year">1861 год</div>
-                        <div class="city-description">Великий Новгород — колыбель русской государственности</div>
-                    </div>
-                    <button class="order-btn" onclick="order(12, 'Новгород 1861')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">13</div>
-                    <div class="city-info">
-                        <div class="city-name">Оренбург</div>
-                        <div class="city-year">1853 год</div>
-                        <div class="city-description">Крепость на границе Европы и Азии</div>
-                    </div>
-                    <button class="order-btn" onclick="order(13, 'Оренбург 1853')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">14</div>
-                    <div class="city-info">
-                        <div class="city-name">Петрозаводск</div>
-                        <div class="city-year">1884 год</div>
-                        <div class="city-description">Столица Карелии на берегу Онежского озера</div>
-                    </div>
-                    <button class="order-btn" onclick="order(14, 'Петрозаводск 1884')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">15</div>
-                    <div class="city-info">
-                        <div class="city-name">Псков</div>
-                        <div class="city-year">1890 год</div>
-                        <div class="city-description">Древний форпост на западной границе Руси</div>
-                    </div>
-                    <button class="order-btn" onclick="order(15, 'Псков 1890')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">16</div>
-                    <div class="city-info">
-                        <div class="city-name">Рыбинск</div>
-                        <div class="city-year">1850 год</div>
-                        <div class="city-description">Волжский центр хлебной торговли</div>
-                    </div>
-                    <button class="order-btn" onclick="order(16, 'Рыбинск 1850')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">17</div>
-                    <div class="city-info">
-                        <div class="city-name">Самара</div>
-                        <div class="city-year">1886 год</div>
-                        <div class="city-description">Волжский город купцов и пароходчиков</div>
-                    </div>
-                    <button class="order-btn" onclick="order(17, 'Самара 1886')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">18</div>
-                    <div class="city-info">
-                        <div class="city-name">Санкт-Петербург</div>
-                        <div class="city-year">1878 год</div>
-                        <div class="city-description">Окна Европы — столица на Неве</div>
-                    </div>
-                    <button class="order-btn" onclick="order(18, 'Санкт-Петербург 1878')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">19</div>
-                    <div class="city-info">
-                        <div class="city-name">Сестрорецк</div>
-                        <div class="city-year">1910 год</div>
-                        <div class="city-description">Пригород Санкт-Петербурга, Финский залив, оружейный завод</div>
-                    </div>
-                    <button class="order-btn" onclick="order(19, 'Сестрорецк 1910')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">20</div>
-                    <div class="city-info">
-                        <div class="city-name">Суздаль</div>
-                        <div class="city-year">1788 год</div>
-                        <div class="city-description">Белокаменный град, музей под открытым небом</div>
-                    </div>
-                    <button class="order-btn" onclick="order(20, 'Суздаль 1788')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">21</div>
-                    <div class="city-info">
-                        <div class="city-name">Тамбов</div>
-                        <div class="city-year">1832 год</div>
-                        <div class="city-description">Город тамбовских лесов и черноземья</div>
-                    </div>
-                    <button class="order-btn" onclick="order(21, 'Тамбов 1832')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">22</div>
-                    <div class="city-info">
-                        <div class="city-name">Тверь</div>
-                        <div class="city-year">1896 год</div>
-                        <div class="city-description">На Волге, между Москвой и Петербургом</div>
-                    </div>
-                    <button class="order-btn" onclick="order(22, 'Тверь 1896')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">23</div>
-                    <div class="city-info">
-                        <div class="city-name">Тула</div>
-                        <div class="city-year">1865 год</div>
-                        <div class="city-description">Город мастеров и оружейников</div>
-                    </div>
-                    <button class="order-btn" onclick="order(23, 'Тула 1865')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">24</div>
-                    <div class="city-info">
-                        <div class="city-name">Казанская губерния</div>
-                        <div class="city-year">1913 год</div>
-                        <div class="city-description">Административная карта губернии (Поволжье)</div>
-                    </div>
-                    <button class="order-btn" onclick="order(24, 'Казанская губерния 1913')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">25</div>
-                    <div class="city-info">
-                        <div class="city-name">Опочецкий уезд</div>
-                        <div class="city-year">1838 год</div>
-                        <div class="city-description">Уезд Псковской губернии (Северо-запад)</div>
-                    </div>
-                    <button class="order-btn" onclick="order(25, 'Опочецкий уезд 1838')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">26</div>
-                    <div class="city-info">
-                        <div class="city-name">Царскосельский уезд</div>
-                        <div class="city-year">1906 год</div>
-                        <div class="city-description">Уезд царского пригорода Санкт-Петербурга</div>
-                    </div>
-                    <button class="order-btn" onclick="order(26, 'Царскосельский уезд 1906')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">27</div>
-                    <div class="city-info">
-                        <div class="city-name">Рязань</div>
-                        <div class="city-year">1916 год</div>
-                        <div class="city-description">Древняя столица на Оке</div>
-                    </div>
-                    <button class="order-btn" onclick="order(27, 'Рязань 1916')">Заказать</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ЮГ (15 городов) -->
-        <section id="south" class="section">
-            <h2 class="section-title">ЮГ</h2>
-            <p class="section-description">Крым, Кавказ, Украина, Азовское и Черное моря — земли, входившие в Российскую Империю</p>
-            <div class="city-grid">
-                <div class="city-card">
-                    <div class="city-number">28</div>
-                    <div class="city-info">
-                        <div class="city-name">Брест-Литовск</div>
-                        <div class="city-year">1834 год</div>
-                        <div class="city-description">Крепость на западной границе Империи</div>
-                    </div>
-                    <button class="order-btn" onclick="order(28, 'Брест-Литовск 1834')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">29</div>
-                    <div class="city-info">
-                        <div class="city-name">Варшава</div>
-                        <div class="city-year">1886 год</div>
-                        <div class="city-description">Столица Царства Польского в составе Империи</div>
-                    </div>
-                    <button class="order-btn" onclick="order(29, 'Варшава 1886')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">30</div>
-                    <div class="city-info">
-                        <div class="city-name">Киев</div>
-                        <div class="city-year">1904 год</div>
-                        <div class="city-description">Мать городов русских — столица Малороссии</div>
-                    </div>
-                    <button class="order-btn" onclick="order(30, 'Киев 1904')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">31</div>
-                    <div class="city-info">
-                        <div class="city-name">Кёнигсберг (Королевец)</div>
-                        <div class="city-year">1913 год</div>
-                        <div class="city-description">План на немецком, Восточная Пруссия (редкий город за границей)</div>
-                    </div>
-                    <button class="order-btn" onclick="order(31, 'Кёнигсберг 1913')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">32</div>
-                    <div class="city-info">
-                        <div class="city-name">Керчь</div>
-                        <div class="city-year">1904 год</div>
-                        <div class="city-description">Город на Боспоре Киммерийском, Крым</div>
-                    </div>
-                    <button class="order-btn" onclick="order(32, 'Керчь 1904')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">33</div>
-                    <div class="city-info">
-                        <div class="city-name">Мариуполь</div>
-                        <div class="city-year">1809 год</div>
-                        <div class="city-description">Портовый город на Азовском море</div>
-                    </div>
-                    <button class="order-btn" onclick="order(33, 'Мариуполь 1809')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">34</div>
-                    <div class="city-info">
-                        <div class="city-name">Одесса</div>
-                        <div class="city-year">1897 год</div>
-                        <div class="city-description">Жемчужина Черноморского побережья</div>
-                    </div>
-                    <button class="order-btn" onclick="order(34, 'Одесса 1897')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">35</div>
-                    <div class="city-info">
-                        <div class="city-name">Рига</div>
-                        <div class="city-year">1900 год</div>
-                        <div class="city-description">Столица Лифляндии, балтийский порт</div>
-                    </div>
-                    <button class="order-btn" onclick="order(35, 'Рига 1900')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">36</div>
-                    <div class="city-info">
-                        <div class="city-name">Ростов-на-Дону</div>
-                        <div class="city-year">1914 год</div>
-                        <div class="city-description">На границе Европы-Азии, юго-восток</div>
-                    </div>
-                    <button class="order-btn" onclick="order(36, 'Ростов-на-Дону 1914')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">37</div>
-                    <div class="city-info">
-                        <div class="city-name">Севастополь</div>
-                        <div class="city-year">1908 год</div>
-                        <div class="city-description">Военный порт и гордость Черноморского флота</div>
-                    </div>
-                    <button class="order-btn" onclick="order(37, 'Севастополь 1908')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">38</div>
-                    <div class="city-info">
-                        <div class="city-name">Таганрог</div>
-                        <div class="city-year">1863 год</div>
-                        <div class="city-description">Портовый город на Азовском море</div>
-                    </div>
-                    <button class="order-btn" onclick="order(38, 'Таганрог 1863')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">39</div>
-                    <div class="city-info">
-                        <div class="city-name">Таврическая губерния (Крым)</div>
-                        <div class="city-year">1843 год</div>
-                        <div class="city-description">Административная карта Крымского полуострова</div>
-                    </div>
-                    <button class="order-btn" onclick="order(39, 'Таврическая губерния 1843')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">40</div>
-                    <div class="city-info">
-                        <div class="city-name">Суражский уезд</div>
-                        <div class="city-year">1843 год</div>
-                        <div class="city-description">Уезд Черниговской губернии (Малороссия)</div>
-                    </div>
-                    <button class="order-btn" onclick="order(40, 'Суражский уезд 1843')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">41</div>
-                    <div class="city-info">
-                        <div class="city-name">Харьков</div>
-                        <div class="city-year">1887 год</div>
-                        <div class="city-description">Культурный центр Слободской Украины</div>
-                    </div>
-                    <button class="order-btn" onclick="order(41, 'Харьков 1887')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">42</div>
-                    <div class="city-info">
-                        <div class="city-name">Могилевская губерния</div>
-                        <div class="city-year">1864 год</div>
-                        <div class="city-description">Административная карта, западная Беларусь</div>
-                    </div>
-                    <button class="order-btn" onclick="order(42, 'Могилевская губерния 1864')">Заказать</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- ГОРОДА, ПЕРЕИМЕНОВАННЫЕ ПОСЛЕ РЕВОЛЮЦИИ (6 городов) -->
-        <section id="renamed" class="section">
-            <h2 class="section-title">ГОРОДА, ПЕРЕИМЕНОВАННЫЕ ПОСЛЕ РЕВОЛЮЦИИ</h2>
-            <p class="section-description">Эти города сохранили место, но получили новые имена в советское время</p>
-            <div class="city-grid">
-                <div class="city-card">
-                    <div class="city-number">43</div>
-                    <div class="city-info">
-                        <div class="city-name">Богородск (ныне Ногинск)</div>
-                        <div class="city-year">1873 год</div>
-                        <div class="city-description">Текстильный центр Московской области</div>
-                    </div>
-                    <button class="order-btn" onclick="order(43, 'Богородск 1873')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">44</div>
-                    <div class="city-info">
-                        <div class="city-name">Ижевский Завод (ныне Ижевск)</div>
-                        <div class="city-year">1908 год</div>
-                        <div class="city-description">Оружейный центр Вятской губернии</div>
-                    </div>
-                    <button class="order-btn" onclick="order(44, 'Ижевский Завод 1908')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">45</div>
-                    <div class="city-info">
-                        <div class="city-name">Царевококшайск (ныне Йошкар-Ола)</div>
-                        <div class="city-year">1847 год</div>
-                        <div class="city-description">Столица марийской земли, Казанская губерния</div>
-                    </div>
-                    <button class="order-btn" onclick="order(45, 'Царевококшайск 1847')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">46</div>
-                    <div class="city-info">
-                        <div class="city-name">Царицын (ныне Волгоград)</div>
-                        <div class="city-year">1905 год</div>
-                        <div class="city-description">Волжская крепость на границе степи</div>
-                    </div>
-                    <button class="order-btn" onclick="order(46, 'Царицын 1905')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">47</div>
-                    <div class="city-info">
-                        <div class="city-name">Юзовка (ныне Донецк)</div>
-                        <div class="city-year">1897 год</div>
-                        <div class="city-description">Угольный центр Донбасса</div>
-                    </div>
-                    <button class="order-btn" onclick="order(47, 'Юзовка 1897')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">48</div>
-                    <div class="city-info">
-                        <div class="city-name">Екатеринодар (ныне Краснодар)</div>
-                        <div class="city-year">1912 год</div>
-                        <div class="city-description">Столица Кубани, центр казачества</div>
-                    </div>
-                    <button class="order-btn" onclick="order(48, 'Екатеринодар 1912')">Заказать</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- УРАЛ (3 города) -->
-        <section id="urals" class="section">
-            <h2 class="section-title">УРАЛ</h2>
-            <p class="section-description">Граница Европы и Азии, горнозаводские центры и минеральные богатства</p>
-            <div class="city-grid">
-                <div class="city-card">
-                    <div class="city-number">49</div>
-                    <div class="city-info">
-                        <div class="city-name">Белорецк</div>
-                        <div class="city-year">Современный план</div>
-                        <div class="city-description">Горнозаводской центр Башкирии (черно-белая карта). Входил в Оренбургскую губернию, основан 1762</div>
-                    </div>
-                    <button class="order-btn" onclick="order(49, 'Белорецк')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">50</div>
-                    <div class="city-info">
-                        <div class="city-name">Екатеринбург</div>
-                        <div class="city-year">1916 год</div>
-                        <div class="city-description">Столица Урала на границе Европы и Азии</div>
-                    </div>
-                    <button class="order-btn" onclick="order(50, 'Екатеринбург 1916')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">51</div>
-                    <div class="city-info">
-                        <div class="city-name">Челябинск</div>
-                        <div class="city-year">1838 год</div>
-                        <div class="city-description">Уральский город у истоков реки</div>
-                    </div>
-                    <button class="order-btn" onclick="order(51, 'Челябинск 1838')">Заказать</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- СИБИРЬ И ДАЛЬНИЙ ВОСТОК (9 городов) -->
-        <section id="siberia" class="section">
-            <h2 class="section-title">СИБИРЬ И ДАЛЬНИЙ ВОСТОК</h2>
-            <p class="section-description">От Урала до Тихого океана — необъятные просторы Азиатской России</p>
-            <div class="city-grid">
-                <div class="city-card">
-                    <div class="city-number">52</div>
-                    <div class="city-info">
-                        <div class="city-name">Владивосток</div>
-                        <div class="city-year">1910 год</div>
-                        <div class="city-description">Владение Востока — тихоокеанский порт Империи</div>
-                    </div>
-                    <button class="order-btn" onclick="order(52, 'Владивосток 1910')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">53</div>
-                    <div class="city-info">
-                        <div class="city-name">Иркутск</div>
-                        <div class="city-year">1915 год</div>
-                        <div class="city-description">Сибирская столица у Ангары</div>
-                    </div>
-                    <button class="order-btn" onclick="order(53, 'Иркутск 1915')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">54</div>
-                    <div class="city-info">
-                        <div class="city-name">Красноярск</div>
-                        <div class="city-year">1906 год</div>
-                        <div class="city-description">Город на Енисее — ворота Сибири</div>
-                    </div>
-                    <button class="order-btn" onclick="order(54, 'Красноярск 1906')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">55</div>
-                    <div class="city-info">
-                        <div class="city-name">Ново-Николаевск (ныне Новосибирск)</div>
-                        <div class="city-year">1910 год</div>
-                        <div class="city-description">Новый город Транссибирской магистрали</div>
-                    </div>
-                    <button class="order-btn" onclick="order(55, 'Ново-Николаевск 1910')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">56</div>
-                    <div class="city-info">
-                        <div class="city-name">Порт-Артур</div>
-                        <div class="city-year">1904 год</div>
-                        <div class="city-description">Военный порт на Ляодунском полуострове (арендован 1898-1905)</div>
-                    </div>
-                    <button class="order-btn" onclick="order(56, 'Порт-Артур 1904')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">57</div>
-                    <div class="city-info">
-                        <div class="city-name">Хабаровск</div>
-                        <div class="city-year">1914 год</div>
-                        <div class="city-description">Город на Амуре — форпост на Дальнем Востоке</div>
-                    </div>
-                    <button class="order-btn" onclick="order(57, 'Хабаровск 1914')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">58</div>
-                    <div class="city-info">
-                        <div class="city-name">Чита</div>
-                        <div class="city-year">1862 год</div>
-                        <div class="city-description">Город у слияния рек, край декабристов</div>
-                    </div>
-                    <button class="order-btn" onclick="order(58, 'Чита 1862')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">59</div>
-                    <div class="city-info">
-                        <div class="city-name">Якутск</div>
-                        <div class="city-year">1786 год</div>
-                        <div class="city-description">Один из древнейших городов Сибири, столица Якутии</div>
-                    </div>
-                    <button class="order-btn" onclick="order(59, 'Якутск 1786')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">60</div>
-                    <div class="city-info">
-                        <div class="city-name">Камчатка</div>
-                        <div class="city-year">1900 год</div>
-                        <div class="city-description">Полуостров Камчатка — восточный край Империи</div>
-                    </div>
-                    <button class="order-btn" onclick="order(60, 'Камчатка 1900')">Заказать</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- АДМИНИСТРАТИВНЫЕ И СПЕЦИАЛЬНЫЕ КАРТЫ (4 карты) -->
-        <section id="admin" class="section">
-            <h2 class="section-title">АДМИНИСТРАТИВНЫЕ И СПЕЦИАЛЬНЫЕ КАРТЫ</h2>
-            <p class="section-description">Карты целых регионов, губерний и уникальные издания</p>
-            <div class="city-grid">
-                <div class="city-card">
-                    <div class="city-number">61</div>
-                    <div class="city-info">
-                        <div class="city-name">Российская Империя</div>
-                        <div class="city-year">1914 год</div>
-                        <div class="city-description">Общая карта Российской Империи на закате перед революцией (размер 70х50)</div>
-                    </div>
-                    <button class="order-btn" onclick="order(61, 'Российская Империя 1914')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">62</div>
-                    <div class="city-info">
-                        <div class="city-name">Царевококшайский уезд</div>
-                        <div class="city-year">1895 год</div>
-                        <div class="city-description">Уезд Казанской губернии (регион Йошкар-Олы)</div>
-                    </div>
-                    <button class="order-btn" onclick="order(62, 'Царевококшайский уезд 1895')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">63</div>
-                    <div class="city-info">
-                        <div class="city-name">Курск</div>
-                        <div class="city-year">1782 год</div>
-                        <div class="city-description">Историческая карта Курска XVII-XVIII веков</div>
-                    </div>
-                    <button class="order-btn" onclick="order(63, 'Курск 1782')">Заказать</button>
-                </div>
-
-                <div class="city-card">
-                    <div class="city-number">64</div>
-                    <div class="city-info">
-                        <div class="city-name">Курск (обновленная версия)</div>
-                        <div class="city-year">Год не указан</div>
-                        <div class="city-description">Обновленная версия карты Курска XIX века</div>
-                    </div>
-                    <button class="order-btn" onclick="order(64, 'Курск обновленная')">Заказать</button>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <div class="footer">
-        <div class="footer-logo">🍃 Книжная лавка ЛИСТВА</div>
-        <p>За новогодними подарками — в Листву!</p>
-        <p>Заказы принимаются до 14 декабря включительно</p>
-        <p><a href="https://t.me/listvamsk" target="_blank" style="color: var(--color-primary); font-weight: var(--font-weight-semibold);">Консультант: t.me/listvamsk</a></p>
-    </div>
-
-    <script>
-        function order(number, cityName) {
-            const message = `Здравствуйте! Хочу заказать карту №${number}: ${cityName}`;
-            const encodedMessage = encodeURIComponent(message);
-            window.open(`https://t.me/listvamsk?text=${encodedMessage}`, '_blank');
-        }
-
-        document.querySelectorAll('.quick-nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Санкт-Петербург</div>
+            <div class="city-meta">столица и порт на Балтике</div>
+          </div>
+          <div class="city-desc">План имперской столицы с классической застройкой центра и набережными Невы.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Новгород</div>
+            <div class="city-meta">древний город на северо-западе</div>
+          </div>
+          <div class="city-desc">Карта одного из старейших городов России с дореволюционной топографией.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Псков</div>
+            <div class="city-meta">пограничный западный город</div>
+          </div>
+          <div class="city-desc">Исторический план приграничного города с укреплениями и дореволюционной застройкой.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Архангельск</div>
+            <div class="city-meta">северный порт</div>
+          </div>
+          <div class="city-desc">Карта важного северного порта Российской Империи с обозначением гавани и улиц города.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Казань</div>
+            <div class="city-meta">волжский город</div>
+          </div>
+          <div class="city-desc">Дореволюционная карта крупного губернского центра на Волге с исторической планировкой.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Нижний Новгород</div>
+            <div class="city-meta">ярмарочный центр</div>
+          </div>
+          <div class="city-desc">План крупного торгового города с ярмарочными площадями и набережными Волги и Оки.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Ярославль</div>
+            <div class="city-meta">старинный волжский город</div>
+          </div>
+          <div class="city-desc">Историческая карта губернского центра с дореволюционными кварталами и храмами.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Тверь</div>
+            <div class="city-meta">город между Москвой и Петербургом</div>
+          </div>
+          <div class="city-desc">Карта дореволюционной Твери с набережной Волги и центральными улицами.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Смоленск</div>
+            <div class="city-meta">западный форпост</div>
+          </div>
+          <div class="city-desc">План пограничного города с обозначением крепостных линий и дореволюционного центра.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <!-- ПЕРЕНЕСЁННЫЕ ГОРОДА ИЗ ЮГА В ЕВРОПЕЙСКУЮ ЧАСТЬ -->
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Брест-Литовск</div>
+            <div class="city-meta">западный город Империи</div>
+          </div>
+          <div class="city-desc">Карта западного города Российской Империи, важного железнодорожного и стратегического узла.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Варшава</div>
+            <div class="city-meta">столица Царства Польского</div>
+          </div>
+          <div class="city-desc">Исторический план Варшавы периода, когда город входил в состав Российской Империи как центр Царства Польского.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Киев</div>
+            <div class="city-meta">юго-западный центр Империи</div>
+          </div>
+          <div class="city-desc">Карта одного из крупнейших городов Юго-Западного края Российской Империи с дореволюционной застройкой.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Кёнигсберг (Королевец)</div>
+            <div class="city-meta">Восточная Пруссия</div>
+          </div>
+          <div class="city-desc">План немецкого города Кёнигсберга с подписью на немецком языке, отражающий довоенную топографию будущего Калининграда.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Рига</div>
+            <div class="city-meta">балтийский порт</div>
+          </div>
+          <div class="city-desc">Карта Риги как крупного балтийского порта и центра Лифляндской губернии в составе Российской Империи.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Суражский уезд</div>
+            <div class="city-meta">административная карта</div>
+          </div>
+          <div class="city-desc">Административная карта уезда с дореволюционным делением, волостями и населенными пунктами западной части Империи.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Могилевская губерния</div>
+            <div class="city-meta">административное деление</div>
+          </div>
+          <div class="city-desc">Карта губернии на западе Российской Империи с уездами, уездными и губернскими центрами.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="category" id="south">
+      <h2>Юг</h2>
+      <p class="category-note">Южные города Российской Империи: Причерноморье, Приазовье, степные регионы.</p>
+      <div class="city-list">
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Одесса</div>
+            <div class="city-meta">порт на Чёрном море</div>
+          </div>
+          <div class="city-desc">Карта одного из главных портовых городов Империи на побережье Чёрного моря с планом центра и гавани.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Харьков</div>
+            <div class="city-meta">крупный город Юга</div>
+          </div>
+          <div class="city-desc">Дореволюционный план Харькова как крупного промышленного и образовательного центра южных губерний.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Севастополь</div>
+            <div class="city-meta">военный порт</div>
+          </div>
+          <div class="city-desc">Карта главного военного порта на Чёрном море с бухтами и фортификациями.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Ялта</div>
+            <div class="city-meta">курортный город Крыма</div>
+          </div>
+          <div class="city-desc">Курортный город на южном берегу Крыма с набережной и дореволюционными дачами на карте.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Ростов-на-Дону</div>
+            <div class="city-meta">донской порт</div>
+          </div>
+          <div class="city-desc">Карта купеческого и портового города на Дону с пристанями и центральными кварталами.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Таганрог</div>
+            <div class="city-meta">порт на Азовском море</div>
+          </div>
+          <div class="city-desc">План портового города на берегу Азовского моря с пристанями и дореволюционной застройкой.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Мариуполь</div>
+            <div class="city-meta">азовский порт</div>
+          </div>
+          <div class="city-desc">Карта приазовского города с портовой зоной и кварталами начала XX века.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="category" id="renamed">
+      <h2>Города, переименованные после революции</h2>
+      <p class="category-note">Города, чьи названия были изменены в советский и постсоветский периоды.</p>
+      <div class="city-list">
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Царицын (Волгоград)</div>
+            <div class="city-meta">город на Волге</div>
+          </div>
+          <div class="city-desc">Карта дореволюционного Царицына до переименований в Сталинград и Волгоград.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Ногинск (Богородск)</div>
+            <div class="city-meta">подмосковный город</div>
+          </div>
+          <div class="city-desc">Дореволюционная карта Богородска, ныне Ногинска, с улицами и фабриками.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Ижевск (Воткинский завод и окрестности)</div>
+            <div class="city-meta">прикамский город</div>
+          </div>
+          <div class="city-desc">Карта дореволюционного Ижевска и заводских территорий до советских переименований.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Йошкар-Ола (Царёвококшайск)</div>
+            <div class="city-meta">город в Поволжье</div>
+          </div>
+          <div class="city-desc">Карта дореволюционного Царёвококшайска, будущей Йошкар-Олы, с дореволюционной планировкой.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Донецк (Юзовка)</div>
+            <div class="city-meta">промышленный центр</div>
+          </div>
+          <div class="city-desc">Историческая карта Юзовки — будущего Донецка — как промышленного и шахтёрского поселения.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Краснодар (Екатеринодар)</div>
+            <div class="city-meta">кубанский город</div>
+          </div>
+          <div class="city-desc">Карта Екатеринодара, ныне Краснодара, с дореволюционной планировкой кубанского центра.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="category" id="ural">
+      <h2>Урал</h2>
+      <p class="category-note">Города уральского региона — границы Европы и Азии.</p>
+      <div class="city-list">
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Екатеринбург</div>
+            <div class="city-meta">уральский центр</div>
+          </div>
+          <div class="city-desc">Карта дореволюционного Екатеринбурга с заводскими слободами и центральной частью города.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Челябинск</div>
+            <div class="city-meta">транзитный узел</div>
+          </div>
+          <div class="city-desc">Исторический план города как важного железнодорожного узла на востоке Урала.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Белорецк</div>
+            <div class="city-meta">горнозаводской город</div>
+          </div>
+          <div class="city-desc">Карта уездного горнозаводского городка на Южном Урале с заводами и рабочими поселками.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="category" id="siberia">
+      <h2>Сибирь и Дальний Восток</h2>
+      <p class="category-note">Города восточнее Урала: Сибирь, Забайкалье, Дальний Восток.</p>
+      <div class="city-list">
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Тюмень</div>
+            <div class="city-meta">врата в Сибирь</div>
+          </div>
+          <div class="city-desc">Карта одного из старейших сибирских городов — отправной точки путей вглубь Сибири.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Томск</div>
+            <div class="city-meta">университетский центр</div>
+          </div>
+          <div class="city-desc">Историческая карта Томска как одного из главных образовательных и административных центров Сибири.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Иркутск</div>
+            <div class="city-meta">город у Байкала</div>
+          </div>
+          <div class="city-desc">Карта крупного сибирского города на Ангаре, важного узла на пути к Байкалу и в Забайкалье.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Красноярск</div>
+            <div class="city-meta">город на Енисее</div>
+          </div>
+          <div class="city-desc">План Красноярска с переправами через Енисей и дореволюционным центром города.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Якутск</div>
+            <div class="city-meta">северный город</div>
+          </div>
+          <div class="city-desc">Карта одного из самых северных городов Российской Империи с редкой дореволюционной топографией.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+        <div class="city-item">
+          <div class="city-header">
+            <div class="city-name">Владивосток</div>
+            <div class="city-meta">порт на Тихом океане</div>
+          </div>
+          <div class="city-desc">Карта главного порта Российской Империи на Тихом океане с бухтами и фортификациями.</div>
+          <div class="order-row">
+            <span class="price">1612 ₽</span>
+            <a class="order-button" href="https://t.me/listvamsk" target="_blank">Заказать</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <p class="footer-note">
+      Чтобы оформить заказ, напишите нашему консультанту в Telegram <a href="https://t.me/listvamsk" target="_blank">@listvamsk</a> и укажите названия нужных городов. Если вам нужна карта города, которого пока нет в списке, напишите об этом — мы постараемся вам помочь.
+    </p>
+
+  </main>
+
+</div>
 </body>
 </html>
